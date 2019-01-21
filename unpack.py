@@ -28,7 +28,6 @@ def unpack(package, unpackTo):
         except Exception as e:
             print(e)
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--package', required=True, help='path to package [.zip / .tar.gz]')
