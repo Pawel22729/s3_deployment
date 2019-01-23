@@ -1,12 +1,12 @@
-#!/usr/bin/bash
+#!/usr/bin/env python
 
 import boto3
 import os
 import hashlib
 import argparse
 
-def verifyBucketContent(local_path, bucket, prefix):
-    cli = boto3.client('s3')
+def verifyBucketContent(local_path, bucket, prefix, region='eu-west-2'):
+    cli = boto3.client('s3', region_name=region)
     resp = cli.list_objects_v2(Bucket=bucket, Prefix=prefix)
     remote_md5 = {}
     for remote in resp['Contents']:
